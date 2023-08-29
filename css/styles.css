@@ -32,12 +32,15 @@ ul {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 768px;
     margin: 0 auto;
 }
 
 .section {
     padding: 94px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -46,6 +49,13 @@ ul {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #ECECEC;
+    padding: 0 15px;
+    min-height: 60px;
+}
+
+nav,
+.contacts-list {
+    display: none;
 }
 
 .logo {
@@ -54,7 +64,6 @@ ul {
     font-weight: 700;
     font-size: 26px;
     line-height: 1.192307692307692;
-    margin-right: 76px;
     display: flex;
     align-items: center;
 }
@@ -63,86 +72,6 @@ ul {
 }
 .accent2 {
     color: #FFFFFF;
-}
-
-.nav-list {
-    display: flex;
-    padding: 24px 0;
-    gap: 40px;
-}
-
-.nav-page {
-    color: #212121;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.142857142857143;
-}
-
-.nav-list>li {
-    position: relative;
-}
-
-.nav-page-current {
-    color: #2196F3;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.nav-page-current::after {
-    position: absolute;
-    content: " ";
-    height: 4px;
-    width: 100%;
-    bottom: -24px;
-    left: 0px;
-    border-radius: 2px;
-    background-color: #2196F3;
-}
-
-.contacts-list {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-@media (max-width: 480px) {
-    nav,
-    .contacts-list {
-        display: none;
-    }
-    .navigation {
-        padding: 10px 15px;
-    }
-}
-
-.contact1 {
-    display: flex;
-    align-items: center;
-    color: #757575;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    margin-left: 50px;
-    stroke: #757575;    /* zapis nie konieczny, dotyczy bazowego koloru obramowania. Naszukalem sie dziada wiec zostaje */
-    stroke-width: 2px;
-}
-.contact1:hover,
-.contact1:focus,
-.contact1:active {
-    color: #2196F3;
-    stroke: #2196F3;
-    stroke-width: 2px;
-    transition: scale var(--standard-animation);
-}
-
-.contact1>svg {
-    margin-right: 10px;
-}
-
-@media (min-width >= 481px) {
-    .mobile-menu {
-        display: none;
-    }
 }
 
 .menu-toggle {
@@ -162,25 +91,24 @@ ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    max-width: 1600px;
-    max-height: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 200px 452px;
+    max-width: 1200px;
+    min-height: 400px;
+    padding: 0 15px;
     background-color: rgba(47, 48, 58);
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url("../images/header-background.jpg");
 }
 
 .heading1 {
-    color: #FFFFFF;
-    font-size: 44px;
-    font-weight: 900;
-    line-height: 1.363636363636364;
-    letter-spacing: 0.06em;
+    color: #FFF;
     text-align: center;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 161.538%;
+    letter-spacing: 1.56px;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    max-width: 395px;
+    margin: 0;
 }
 
 .open-modal-button,
@@ -192,7 +120,8 @@ ul {
     letter-spacing: 0.06em;
     border-radius: 4px;
     cursor: pointer;
-    padding: 10px 42px;
+    min-width: 200px;
+    min-height: 50px;
     margin-top: 15px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
@@ -217,13 +146,13 @@ ul {
     visibility: visible;
     transition: opacity 250ms;
     display: flex;
+    justify-content: center;
 }
 
 .modal-body {
     position: relative;
     min-width: 290px;
-    min-height: 584px;
-    margin: auto;
+    margin: auto 5px;
     background-color: #FFF;
     border-radius: 4px;
     box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20),
@@ -330,19 +259,19 @@ textarea:focus-within {
 input[type="checkbox"] {
     position: relative;
     color: #fff;
-    appearance: none;
+    visibility: hidden;
+    /* display: none; */
+    /* appearance: none; */
     /* -moz-appearance: none;
     -webkit-appearance: none; */
 }
 
 .check-icon {
     fill: #FFFFFF;
+    min-width: 16px;
     padding: 1px;
     border: 1.5px solid #212121;
     border-radius: 3px;
-    position: absolute;
-    top: 20px;
-    left: 18px;
 }
 
 input[type="checkbox"]:checked + .check-icon {
@@ -350,7 +279,7 @@ input[type="checkbox"]:checked + .check-icon {
     border: none;
 }
 
-.rules-wraper>a {
+.rules-wraper a {
     color: #2196F3;
 }
 
@@ -358,20 +287,19 @@ input[type="checkbox"]:checked + .check-icon {
 /* SECTION 1 - LIST OF ARTICLES */
 .cards-list {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: auto 15px;
 }
 
 .card {
-    flex-basis: calc((100% - 90px) / 4);
+    display: flex;
+    flex-direction: column;
+    /* flex-basis: calc((100% - 90px) / 4); */
     list-style: none;
-    margin: 0 15px;
-}
-.card:nth-child(4n+4) {
-    margin-right: 0;
-}
-.card:nth-child(4n+1) {
-    margin-left: 0;
+    max-width: 100%;
+    min-width: 270px;
 }
 
 .container-big-icon {
@@ -400,30 +328,35 @@ input[type="checkbox"]:checked + .check-icon {
 
 
 /* SECTION 2 - ABOUT US */
-.header2 {
-    font-weight: 700;
-    font-size: 2.25em;
-    text-align: center;
-    margin-bottom: 50px;
+.section-about-us {
+    visibility: hidden;
+    position: fixed;
 }
 
-.about-us-list {
-    display: flex;
-    justify-content: space-between;
+.header2 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 28px;
+    letter-spacing: 0.84px;
 }
 
 
 /* SECTION 3 - OUR TEAM */
-.our-team{
+.section-our-team{
     background-color: #F5F4FA;
-    max-width: 1600px;
+    max-width: 768px;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
 }
 
 .our-team-list {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    /* margin: auto 15px; */
 }
 
 .our-team-list>li {
@@ -437,6 +370,7 @@ input[type="checkbox"]:checked + .check-icon {
 }
 
 .our-team-card {
+    max-width: 450px;
     background-color: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
                 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -480,19 +414,23 @@ input[type="checkbox"]:checked + .check-icon {
 
 
 /* SECTION 4 - CUSTOMERS */
+
 .customers-list {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: auto 15px;
 }
 
 .customer-rectangle {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 31px;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     fill: #AFB1B8;
+    min-width: 210px;
 }
 
 .customer-rectangle:hover,
@@ -611,14 +549,84 @@ figure {
 footer {
     background-color: #2F303A;
     max-width: 1600px;
-    min-height: 252px;
     margin: 0 auto;
     padding: 60px 0px;
 }
 
 footer .container {
     display: flex;
-    justify-content: space-between;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    column-gap: 100px;
+    row-gap: 60px;
+    justify-content: space-evenly;
+}
+
+footer .container>div {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+footer .logo {
+    margin: 0;
+}
+
+address>ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+}
+
+.newsletter-form>label {
+    align-items: center;
+}
+
+#newsletter-user-email {
+    padding: 8px 16px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    background: rgba(33, 150, 243, 0.00);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    transition: scale var(--standard-animation);
+    color: orange;
+    min-width: 270px;
+    margin: 0 15px 0 15px;
+}
+
+.newsletter-button {
+    border: none;
+    background-color: #2196F3;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.96px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    transition: scale var(--standard-animation);
+    fill: #FFFFFF;
 }
 
 address {
@@ -685,7 +693,6 @@ footer .social-links {
 
 .newsletter-form {
     color: #FFFFFF;
-    margin-left: 78px;
     display: flex;
     gap: 12px;
 }
@@ -697,43 +704,9 @@ footer .social-links {
     cursor: pointer;
 }
 
-#newsletter-user-email {
-    padding: 8px 16px;
-    width: 358px;
-    height: 50px;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.30);
-    background: rgba(33, 150, 243, 0.00);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    transition: scale var(--standard-animation);
-    color: orange;
-}
-
-.newsletter-button {
-    border: none;
-    background-color: #2196F3;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0.96px;
-    cursor: pointer;
-    width: 200px;
-    height: 50px;
-    padding: 10px 0;
-    margin-top: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    border-radius: 4px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    transition: scale var(--standard-animation);
-    fill: #FFFFFF;      /* wypełnienie ikony */
-}
 
 
-/* FOR  MOBILE */
+/* MENU  MOBILE */
 .menu-container {
     position: fixed;
     top: 0;
@@ -754,16 +727,16 @@ footer .social-links {
     transform: translateX(0);
 }
 
-@media (min-width: 768px) {
-    .menu-toggle {
-        display: none;
-    }
-}
-
 .menu-container .menu-toggle {
     position: absolute;
     top: 16px;
     right: 16px;
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .mobile-menu .link {
@@ -813,61 +786,184 @@ footer .social-links {
 }
 
 
-/* FOR  TABLET */
-@media screen and (min-width: 481px) and (max-width: 1199px) {
-    body {
-        background-color: red;
-    }
+/* MEDIA  JUST  FOR  TABLET */
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     .contacts-list {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         gap: 10px;
-        height: 80px;
+        margin: 0;
     }
-    .navigation {
-        padding: 0 15px 0 15px;
+    .card {
+        max-width: 354px;
+    }
+    .section-our-team {
+        max-width: 1200px;
+    }
+    .customer-rectangle {
+        min-width: 226px;
     }
 }
 
-/* FOR  MOBILE  AND  TABLET */
-@media screen and (max-width: 1199px) {
-    footer .container {
+
+/* MEDIA  FOR  TABLET  AND  DESKTOP */
+@media screen and (min-width: 768px) {
+    .container {
         max-width: 1200px;
-        flex-wrap: wrap;
-        column-gap: 100px;
-        row-gap: 60px;
-        justify-content: space-evenly;
     }
-    footer .container>div {
+    .mobile-menu {
+        display: none;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .navigation {
+        min-height: 80px;
+    }
+    nav,
+    .contacts-list {
         display: flex;
-        flex-direction: column;
-        justify-items: center;
+    }
+    .nav-list {
+        display: flex;
+        padding: 24px 0;
+        gap: 40px;
+    }
+    .nav-page {
+        color: #212121;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.142857142857143;
+    }
+    .nav-list>li {
+        position: relative;
+    }
+    .nav-page-current {
+        color: #2196F3;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .nav-page-current::after {
+        position: absolute;
+        content: " ";
+        height: 4px;
+        width: 100%;
+        bottom: -24px;
+        left: 0px;
+        border-radius: 2px;
+        background-color: #2196F3;
+    }
+    .contacts-list {
+        display: flex;
+    }
+    .contact1 {
+        display: flex;
         align-items: center;
-        align-content: center;
+        color: #757575;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        stroke: #757575;    /* zapis nie konieczny, dotyczy bazowego koloru obramowania. Naszukalem sie dziada wiec zostaje */
+        stroke-width: 2px;
+    }
+    .contact1:hover,
+    .contact1:focus,
+    .contact1:active {
+        color: #2196F3;
+        stroke: #2196F3;
+        transition: scale var(--standard-animation);
+    }
+    .contact1>svg {
+        margin-right: 10px;
+    }
+    .modal-body {
+        min-width: 528px;
+    }
+    #newsletter-user-email {
+    min-width: 358px;
+    }
+}
+
+
+/* MEDIA  JUST  FOR  DESKTOP */
+@media screen and (min-width: 1200px) {
+    .section-about-us {
+            visibility: visible;
+            position: initial;
+        }
+    .logo {
+        margin-right: 76px;
+    }
+    .contacts-list {
+        margin-left: auto;
+        align-items: center;
+    }
+    .contact1 {
+        margin-left: 50px;
+    }
+    .head {
+        max-width: 1600px;
+        min-height: 600px;
+        background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+                        url("../images/header-background.jpg");
+        }
+    .heading1 {
+        font-size: 44px;
+        line-height: 1.363636363636364;
+        letter-spacing: 0.06em;
+        max-width: 696px;
+    }
+    .header2 {
+        font-size: 2.25em;
+    }
+    .card {
+        max-width: 270px;
+    }
+    .about-us-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    .section-our-team {
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+    .customers-list {
+        flex-wrap: nowrap;
         margin: 0;
-        padding: 0;
+    }
+    .customer-rectangle {
+        min-width: 170px;
+    }
+    footer .container {
+        justify-content: space-between;
+    }
+    footer .container {
+        flex-wrap: nowrap;
+        gap: 0;
     }
     footer .logo {
-        margin: 0;
+        margin-right: 100px;
     }
     address>ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
     .newsletter-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        flex-direction: row;
+        align-items: normal;
         margin: 0;
     }
     .newsletter-form>label {
-        align-items: center;
+        align-items: flex-start;
+    }
+    #newsletter-user-email {  
+        max-width: 100%;
         margin: 0;
     }
     .newsletter-button {
-        margin: 0;
+        margin-top: 48px;
     }
 }
