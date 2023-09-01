@@ -6,7 +6,6 @@
 body {
     font-family: "Roboto", sans-serif;
     color: #212121;
-    background-color: lightgreen;
 }
 
 * h1,
@@ -504,6 +503,7 @@ input[type="checkbox"]:checked + .check-icon {
     border: 1px solid #EEEEEE;
     display: flex;
     margin: 15px 0 15px 0;
+    min-width: 270px;
 }
 .product-card:hover,
 .product-card:focus,
@@ -519,6 +519,8 @@ input[type="checkbox"]:checked + .check-icon {
 
 figure {
     margin: 0;
+    width: 100%;
+    height: auto;
 }
 
 .before-overlay {
@@ -794,12 +796,12 @@ footer .social-links {
 
 /* MEDIA  JUST  FOR  TABLET */
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-    body {
-        background-color: orange;
-    }
     .container,
     .navigation {
         max-width: 768px;
+    }
+    header {
+        background-image: url(../images/header-1600.jpg);
     }
     .contacts-list {
         flex-direction: column;
@@ -932,9 +934,6 @@ footer .social-links {
 
 /* MEDIA  JUST  FOR  DESKTOP */
 @media screen and (min-width: 1200px) {
-    body {
-        background-color: lightskyblue;
-    }
     footer {
         display: flex;
         max-width: 1600px;
@@ -966,12 +965,6 @@ footer .social-links {
     .contact1 {
         margin-left: 50px;
     }
-    .head {
-        max-width: 1600px;
-        height: auto;
-        background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-                        url("../images/header-background.jpg");
-        }
     .heading1 {
         font-size: 44px;
         line-height: 1.363636363636364;
@@ -1062,7 +1055,6 @@ footer .social-links {
 }
 
 
-
 /* RESPONSYWNY  OBRAZ  TŁA  i  RETINIZACJA  GRAFIKI */
 @media screen and (min-device-pixel-ratio: 2),
 (-webkit-min-device-pixel-ratio: 2),
@@ -1101,21 +1093,3 @@ footer .social-links {
         }
     }
 }
-
-
-
-/* .box {
-    width: 480px;
-    height: 320px;
-    background-image: url('photo.png');
-    background-size: 480px 320px;
-}
-
-@media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
-    .box {
-        background-image: url('photo@2x.png');
-    }
-} */
