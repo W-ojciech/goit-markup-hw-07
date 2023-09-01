@@ -16,6 +16,12 @@ ul {
     margin: 0;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .link {
     text-decoration: none;
     font-style: normal;
@@ -33,7 +39,6 @@ ul {
 }
 
 .container,
-section,
 footer {
     max-width: 480px;
     margin: 0 auto;
@@ -42,7 +47,6 @@ footer {
 .section {
     padding: 94px 0;
     display: flex;
-    justify-content: center;
 }
 
 
@@ -88,17 +92,20 @@ nav,
 
 
 /* HEADER */
-.head {
+header {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 100%;
     min-height: 400px;
     padding: 0 15px;
     background-color: rgba(47, 48, 58);
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-    url("../images/header-background.jpg");
+    url("../images/header-480.jpg");
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
 }
 
 .heading1 {
@@ -290,9 +297,9 @@ input[type="checkbox"]:checked + .check-icon {
 .cards-list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     gap: 30px;
-    margin: auto 15px;
+    margin: 0 15px;
 }
 
 .card {
@@ -346,6 +353,9 @@ input[type="checkbox"]:checked + .check-icon {
     justify-content: center;
     flex-direction: column;
     gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .our-team-list {
@@ -353,6 +363,8 @@ input[type="checkbox"]:checked + .check-icon {
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+    max-width: 480px;
+    padding: 0 15px;
 }
 
 .our-team-list>li {
@@ -387,7 +399,7 @@ input[type="checkbox"]:checked + .check-icon {
 .social-links {
     display: flex;
     justify-content: center;
-    margin: 16px 0;
+    margin: 16px 0 24px;
 }
 
 .social-circle {
@@ -448,8 +460,9 @@ input[type="checkbox"]:checked + .check-icon {
 /* SECTION PORTFOLIO */
 .filters-list {
     display: flex;
-    justify-content: center;
-    margin-bottom: 35px;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    margin-bottom: 40px;
 }
 
 .filters-list>li:not(:last-child) {
@@ -476,10 +489,14 @@ input[type="checkbox"]:checked + .check-icon {
     transition: scale var(--standard-animation);
 }
 
+.section-portfolio {
+    flex-direction: column;
+}
+
 .products-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .product-card {
@@ -776,14 +793,12 @@ footer .social-links {
 
 
 /* MEDIA  JUST  FOR  TABLET */
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     body {
         background-color: orange;
     }
     .container,
-    .navigation,
-    section,
-    footer {
+    .navigation {
         max-width: 768px;
     }
     .contacts-list {
@@ -814,6 +829,13 @@ footer .social-links {
     }
     .newsletter-form>label {
         min-width: 450px;
+    }
+    .section-our-team {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .our-team-list {
+        width: 100%;
     }
     .our-team-card {
         max-width: 354px;
@@ -895,6 +917,16 @@ footer .social-links {
         flex-direction: row;
         flex-wrap: wrap;
     }
+    /* Portfolio */
+    .filters-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 30px;
+    }
+    .products-list {
+        justify-content: space-between;
+    }
 }
 
 
@@ -912,6 +944,10 @@ footer .social-links {
         max-width: 1200px;
         justify-content: space-between;
         margin: auto;
+    }
+    header {
+        background-image: url(../images/header-1600.jpg);
+        height: 600px;
     }
     .section-about-us {
             visibility: visible;
@@ -932,7 +968,7 @@ footer .social-links {
     }
     .head {
         max-width: 1600px;
-        min-height: 600px;
+        height: auto;
         background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
                         url("../images/header-background.jpg");
         }
@@ -951,6 +987,8 @@ footer .social-links {
     .cards-list {
         flex-wrap: nowrap;
         justify-content: space-between;
+        width: 100%;
+        margin: 0;
     }
     .card {
         max-width: 270px;
@@ -964,10 +1002,15 @@ footer .social-links {
         max-width: 270px;
     }
     .section-our-team {
-        max-width: 1600px;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         justify-content: center;
+    }
+    .our-team-list{
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
     }
     .customers-list {
         flex-wrap: nowrap;
@@ -1017,3 +1060,62 @@ footer .social-links {
         margin: 12px 0 0;
     }
 }
+
+
+
+/* RESPONSYWNY  OBRAZ  TŁA  i  RETINIZACJA  GRAFIKI */
+@media screen and (min-device-pixel-ratio: 2),
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    header {
+        background-image: url(../images/header-480@2x.jpg);
+    }
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+        header {
+            background-image: url(../images/header-768@2x.jpg);
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        header {
+            background-image: url(../images/header-1600@2x.jpg);
+        }
+    }
+}
+
+@media (min-device-pixel-ratio: 3),
+(-webkit-min-device-pixel-ratio: 3),
+(min-resolution: 288dpi),
+(min-resolution: 3dppx) {
+    header {
+        background-image: url(../images/header-480@3x.jpg);
+    }
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+        header {
+            background-image: url(../images/header-768@3x.jpg);
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        header {
+            background-image: url(../images/header-1600@3x.jpg);
+        }
+    }
+}
+
+
+
+/* .box {
+    width: 480px;
+    height: 320px;
+    background-image: url('photo.png');
+    background-size: 480px 320px;
+}
+
+@media (min-device-pixel-ratio: 2),
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .box {
+        background-image: url('photo@2x.png');
+    }
+} */
